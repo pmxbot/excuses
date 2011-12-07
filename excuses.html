@@ -1,0 +1,35 @@
+<html>
+<head>
+    <title>Your Next Excuse!</title>
+    <script type="text/javascript" src="static/jquery.js"></script>
+    <style>
+    h1 {
+        font-family: Arial, Helvetica, Sans-serif;
+        background-color:gray;
+        margin:5px auto;
+        margin-top:200px;
+        width:800px;
+    }
+
+    div.container {
+        margin:0px auto;
+        width:100%%;
+        text-align:center;
+    }
+    </style>
+    <script type="text/javascript">
+        var init = function() {
+            $('#next').click(function() {
+                $('#excuse').fadeOut(function(){$(this).load('new')}).fadeIn(1000)});
+        };
+        $(document).ready(init); 
+    </script>
+</head>
+<body>
+<div class="container">
+<h1 id="excuse">%s</h1>
+<button id="next" type="button">New Excuse</button>
+</div>
+</body>
+</html>
+
