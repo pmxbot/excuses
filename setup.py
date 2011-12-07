@@ -11,6 +11,11 @@ setup_params = dict(
 	setup_requires=[
 		'hgtools',
 	],
+	entry_points = dict(
+		console_scripts = [
+			'serve-excuses = excuses:main',
+		],
+	),
 )
 if __name__ == '__main__':
 	from setuptools import setup

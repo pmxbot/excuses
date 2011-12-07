@@ -1,6 +1,7 @@
 import os
 import random
 import sys
+import argparse
 
 import cherrypy
 
@@ -13,7 +14,7 @@ class RandomExcuseGenerator(object):
 
     def get(self):
         return random.choice(self.excuses)
-    
+
     def find(self, word, index=None):
         candidates = []
         for e in self.excuses:
@@ -24,7 +25,7 @@ class RandomExcuseGenerator(object):
         if index > imax:
             index = imax
         return candidates[index]
-        
+
 class ExcusesApp(object):
     def __init__(self, base):
         self.base_path = base
@@ -49,8 +50,7 @@ class ExcusesApp(object):
                 index = None
         return self.excuses.find(word, index)
 
-def setup():
-    base = os.path.abspath(sys.argv[1])
+def setup(base):
     jqpath = os.path.join(base, "jquery-latest.pack.js")
     app_conf = {
         '/static/jquery.js':{
@@ -61,12 +61,21 @@ def setup():
 
     cherrypy.tree.mount(ExcusesApp(base), '/', app_conf)
 
-if __name__ == '__main__':
-    cherrypy.config.update({'server.environment':'production', 
+def get_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('excuses_base', help="The directory where "
+        "excuses.txt and excuses.html can be found.", default=".")
+    return parser.parse_args()
+
+def main():
+    args = get_args()
+    cherrypy.config.update({'server.environment':'production',
                             'server.socket_port':8082,
                             'server.log_to_screen':False,})
-    setup()
+    setup(args.excuses_base)
     cherrypy.engine.signal_handler.subscribe()
     cherrypy.engine.start()
     cherrypy.engine.block()
 
+if __name__ == '__main__':
+    main()
