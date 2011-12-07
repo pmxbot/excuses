@@ -26,6 +26,29 @@ class RandomExcuseGenerator(object):
             index = imax
         return candidates[index]
 
+    def pmxbot_excuse(self, client, event, channel, nick, rest):
+        args = rest.split(' ')[:2]
+        parser = argparse.ArgumentParser()
+        parser.add_argument('word', nargs="?")
+        parser.add_argument('index', type=int, nargs="?")
+        args = parser.parse_args(args)
+        if not args.word:
+            return self.get()
+        return self.find(args.word, args.index)
+
+    @classmethod
+    def create_local(cls):
+        import pkg_resources
+        req = pkg_resources.Requirement.parse('excuses')
+        return cls(pkg_resources.resource_filename(req, 'excuses.txt'))
+
+    @classmethod
+    def install_pmxbot_command(cls):
+        from pmxbot import pmxbot
+        generator = cls.create_local()
+        pmxbot.command("excuse", aliases=("e ",), doc="Provide a "
+            "convenient excuse")(generator.pmxbot_excuse)
+
 class ExcusesApp(object):
     def __init__(self, base):
         self.base_path = base

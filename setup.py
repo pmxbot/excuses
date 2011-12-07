@@ -15,6 +15,9 @@ setup_params = dict(
 		console_scripts = [
 			'serve-excuses = excuses:main',
 		],
+		pmxbot_handlers = [
+			'dowski-excuses = excuses:RandomExcuseGenerator.install_pmxbot_command',
+		],
 	),
 )
 if __name__ == '__main__':
