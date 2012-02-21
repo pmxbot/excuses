@@ -142,7 +142,7 @@ disks spinning backwards - toggle the hemisphere jumper.
 new guy cross-connected phone lines with ac power bus.
 had to use hammer to free stuck disk drive heads.
 Too few computrons available.
-Flat tire on station wagon with tapes.  ("Never underestimate the bandwidth of a station wagon full of tapes hurling down the highway" Andrew S. Tannenbaum) 
+Flat tire on station wagon with tapes.  ("Never underestimate the bandwidth of a station wagon full of tapes hurling down the highway" Andrew S. Tannenbaum)
 Communications satellite used by the military for star wars.
 Party-bug in the Aloha protocol.
 Insert coin for new game
@@ -157,7 +157,7 @@ Zombie processes haunting the computer
 Incorrect time synchronization
 Defunct processes
 Stubborn processes
-non-redundant fan failure 
+non-redundant fan failure
 monitor VLF leakage
 bugs in the RAID
 no "any" key on keyboard
@@ -232,7 +232,7 @@ We had to turn off that service to comply with the CDA Bill.
 Ionization from the air-conditioning
 TCP/IP UDP alarm threshold is set too low.
 Someone is broadcasting pygmy packets and the router doesn't know how to deal with them.
-The new frame relay network hasn't bedded down the software loop transmitter yet. 
+The new frame relay network hasn't bedded down the software loop transmitter yet.
 Fanout dropping voltage too much, try cutting some of those little traces
 Plate voltage too low on demodulator tube
 You did wha... oh _dear_....
@@ -282,7 +282,7 @@ The co-locator cannot verify the frame-relay gateway to the ISDN server.
 High altitude condensation from U.S.A.F prototype aircraft has contaminated the primary subnet mask. Turn off your computer for 9 days to avoid damaging it.
 Lawn mower blade in your fan need sharpening
 Electrons on a bender
-Telecommunications is upgrading. 
+Telecommunications is upgrading.
 Telecommunications is downgrading.
 Telecommunications is downshifting.
 Hard drive sleeping. Let it wake up on it's own...
@@ -354,7 +354,7 @@ Second-system effect.
 Chewing gum on /dev/sd3c
 Boredom in the Kernel.
 the daemons! the daemons! the terrible daemons!
-I'd love to help you -- it's just that the Boss won't let me near the computer. 
+I'd love to help you -- it's just that the Boss won't let me near the computer.
 struck by the Good Times virus
 YOU HAVE AN I/O ERROR -> Incompetent Operator error
 Your parity check is overdrawn and you're out of cache.
@@ -392,7 +392,7 @@ We already sent around a notice about that.
 It's union rules. There's nothing we can do about it. Sorry.
 Interference from the Van Allen Belt.
 Jupiter is aligned with Mars.
-Redundant ACLs. 
+Redundant ACLs.
 Mail server hit by UniSpammer.
 T-1's congested due to porn traffic to the news server.
 Data for intranet got routed through the extranet and landed on the internet.
@@ -467,9 +467,9 @@ It can't be done.
 Probably a hardware problem.
 Somebody must have changed my code.
 Even though it doesn't work, what it doing ?
-Why do you want to do it that way ? 
+Why do you want to do it that way ?
 I only changed a comment.
-I figured I didn't need to test because it was obviously correct. 
+I figured I didn't need to test because it was obviously correct.
 The code doesn't need comments because it's self-documenting.
 Maybe it's static.
 Oh dear, it must have run out of electrons again.
@@ -497,7 +497,7 @@ How did this ever work?
 We'll be done in two weeks.
 I don't have problems like that.
 The problem cannot be reproduced.  Case closed.
-It only happens in the field. We cant reproduce it here / test for that. 
+It only happens in the field. We cant reproduce it here / test for that.
 I could fix it if I had an emulator
 I could fix it if I had a logic analyzer
 I could fix it if I had an up to date prototype
@@ -507,19 +507,19 @@ I could fix it if I had time and a half for overtime
 I could fix it if I had less paperwork
 I could fix it if I had less support tasks
 I could fix it if I had fewer meetings
-It conforms to the spec you signed off! 
+It conforms to the spec you signed off!
 We agree that the software performs to specification, but the specification does not make sense.
 I've just committed a change that might fix this.
 Just try it and see what happens.  If nothing bad happens, then it is fixed
 I do object-oriented programming - if the customer objects, I do more programming.
-Real programmers don't document. If it was hard to write, it should be hard to read.  
-A couple of Months? It's only Software!  
-What do you mean putting 'runs without errors' in the specs?  
-The bug's not that bad. At least it doesn't format your hard drive.  
-This file is also distributed in Visual Basic for the "C"-ing impaired.  
-Programming from a spec is like walking on water.... 
-Its easier to do when it's frozen  
-A Manager: "This fix can't possibly take two months, marketing has already promised this in one week".  
+Real programmers don't document. If it was hard to write, it should be hard to read.
+A couple of Months? It's only Software!
+What do you mean putting 'runs without errors' in the specs?
+The bug's not that bad. At least it doesn't format your hard drive.
+This file is also distributed in Visual Basic for the "C"-ing impaired.
+Programming from a spec is like walking on water....
+Its easier to do when it's frozen
+A Manager: "This fix can't possibly take two months, marketing has already promised this in one week".
 In C++ only friends can access your private parts
 We face new debugging challenges with the migration from C to C++ .
 The system was brought to its knees by a user who disabled his browser cache.
@@ -528,3 +528,4 @@ Children unplugged the router.
 Virtual machine has swine flu.
 VM issues are queued waiting for (sysadmin) processing time.
 The server is unable to complete any other queries until it responds to PANCAKE
+There seems to be an issue with the amd64 platform pptp server managing to reverse the byte order of the packet checksums.
