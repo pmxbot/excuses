@@ -517,8 +517,7 @@ A couple of Months? It's only Software!
 What do you mean putting 'runs without errors' in the specs?
 The bug's not that bad. At least it doesn't format your hard drive.
 This file is also distributed in Visual Basic for the "C"-ing impaired.
-Programming from a spec is like walking on water....
-Its easier to do when it's frozen
+Programming from a spec is like walking on water.... Its easier to do when it's frozen
 A Manager: "This fix can't possibly take two months, marketing has already promised this in one week".
 In C++ only friends can access your private parts
 We face new debugging challenges with the migration from C to C++ .
