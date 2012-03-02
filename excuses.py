@@ -1,6 +1,5 @@
 import os
 import random
-import sys
 import argparse
 
 import cherrypy
@@ -76,9 +75,9 @@ class ExcusesApp(object):
 def setup(base):
     jqpath = os.path.join(base, "jquery-latest.pack.js")
     app_conf = {
-        '/static/jquery.js':{
-            'tools.staticfile.on':True,
-            'tools.staticfile.filename':jqpath,
+        '/static/jquery.js': {
+            'tools.staticfile.on': True,
+            'tools.staticfile.filename': jqpath,
         },
     }
 
@@ -92,9 +91,9 @@ def get_args():
 
 def main():
     args = get_args()
-    cherrypy.config.update({'server.environment':'production',
-                            'server.socket_port':8082,
-                            'server.log_to_screen':False,})
+    cherrypy.config.update({'server.environment': 'production',
+                            'server.socket_port': 8082,
+                            'server.log_to_screen': False, })
     setup(args.excuses_base)
     cherrypy.engine.signal_handler.subscribe()
     cherrypy.engine.start()
