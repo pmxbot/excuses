@@ -2,9 +2,6 @@ import os
 import random
 import argparse
 
-import cherrypy
-
-
 class RandomExcuseGenerator(object):
     def __init__(self, filename):
         file = open(filename)
@@ -54,14 +51,13 @@ class ExcusesApp(object):
         self.excuses_path = os.path.join(base, 'excuses.txt')
         self.excuses = RandomExcuseGenerator(self.excuses_path)
 
-    @cherrypy.expose
     def index(self):
         f = open(os.path.join(self.base_path, 'excuses.html'))
         src = f.read()
         f.close()
         return src % self.excuses.get()
+    index.exposed = True
 
-    @cherrypy.expose
     def new(self, word=None, index=None):
         if not word:
             return self.excuses.get()
@@ -71,6 +67,7 @@ class ExcusesApp(object):
             except:
                 index = None
         return self.excuses.find(word, index)
+    new.exposed = True
 
 def setup(base):
     cherrypy.tree.mount(ExcusesApp(base), '/')
@@ -82,6 +79,8 @@ def get_args():
     return parser.parse_args()
 
 def main():
+    global cherrypy
+    import cherrypy
     args = get_args()
     cherrypy.config.update({'server.environment': 'production',
                             'server.socket_port': 8082,
