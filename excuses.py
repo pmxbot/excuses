@@ -73,15 +73,7 @@ class ExcusesApp(object):
         return self.excuses.find(word, index)
 
 def setup(base):
-    jqpath = os.path.join(base, "jquery-latest.pack.js")
-    app_conf = {
-        '/static/jquery.js': {
-            'tools.staticfile.on': True,
-            'tools.staticfile.filename': jqpath,
-        },
-    }
-
-    cherrypy.tree.mount(ExcusesApp(base), '/', app_conf)
+    cherrypy.tree.mount(ExcusesApp(base), '/')
 
 def get_args():
     parser = argparse.ArgumentParser()
