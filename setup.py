@@ -3,7 +3,7 @@
 
 import sys
 
-py26_reqs = ['argparse'] if sys.version_info() < (2, 7) else []
+py26_reqs = ['argparse'] if sys.version_info < (2, 7) else []
 
 setup_params = dict(
 	name='excuses',
