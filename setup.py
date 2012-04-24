@@ -22,7 +22,7 @@ setup_params = dict(
 			'serve-excuses = excuses:main',
 		],
 		pmxbot_handlers = [
-			'dowski-excuses = excuses:RandomExcuseGenerator.install_pmxbot_command',
+			'dowski excuses = excuses:RandomExcuseGenerator.install_pmxbot_command',
 		],
 	),
 )
