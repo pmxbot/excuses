@@ -3,17 +3,16 @@
 
 import sys
 
+import setuptools
+
 py26_reqs = ['argparse'] if sys.version_info < (2, 7) else []
 
 setup_params = dict(
 	name='excuses',
 	use_hg_version=True,
-	py_modules=['excuses'],
-	data_files=[
-		('', ['excuses.txt', 'excuses.html']),
-	],
+	include_package_data=True,
+	packages=setuptools.find_packages(),
 	install_requires=py26_reqs,
-	zip_safe=False,
 	setup_requires=[
 		'hgtools',
 	],
@@ -27,5 +26,4 @@ setup_params = dict(
 	),
 )
 if __name__ == '__main__':
-	from setuptools import setup
-	setup(**setup_params)
+	setuptools.setup(**setup_params)

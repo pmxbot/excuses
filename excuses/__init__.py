@@ -2,6 +2,8 @@ import os
 import random
 import argparse
 
+import pkg_resources
+
 class RandomExcuseGenerator(object):
     def __init__(self, filename):
         file = open(filename)
@@ -34,9 +36,7 @@ class RandomExcuseGenerator(object):
 
     @classmethod
     def create_local(cls):
-        import pkg_resources
-        req = pkg_resources.Requirement.parse('excuses')
-        return cls(pkg_resources.resource_filename(req, 'excuses.txt'))
+        return cls(pkg_resources.resource_filename('excuses', 'excuses.txt'))
 
     @classmethod
     def install_pmxbot_command(cls):
@@ -47,14 +47,19 @@ class RandomExcuseGenerator(object):
 
 class ExcusesApp(object):
     def __init__(self, base):
-        self.base_path = base
-        self.excuses_path = os.path.join(base, 'excuses.txt')
-        self.excuses = RandomExcuseGenerator(self.excuses_path)
+        self.base = base
+        if base:
+            excuses_filename = os.path.join(self.base, 'excuses.txt')
+            self.excuses = RandomExcuseGenerator(excuses_filename)
+        else:
+            self.excuses = RandomExcuseGenerator.create_local()
 
     def index(self):
-        f = open(os.path.join(self.base_path, 'excuses.html'))
-        src = f.read()
-        f.close()
+        stream = pkg_resources.resource_stream('excuses', 'excuses.html')
+        if self.base:
+            stream = open(os.path.join(self.base, 'excuses.html'))
+        with stream:
+            src = stream.read()
         return src % self.excuses.get()
     index.exposed = True
 
@@ -69,13 +74,10 @@ class ExcusesApp(object):
         return self.excuses.find(word, index)
     new.exposed = True
 
-def setup(base):
-    cherrypy.tree.mount(ExcusesApp(base), '/')
-
 def get_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('excuses_base', help="The directory where "
-        "excuses.txt and excuses.html can be found.", default=".")
+        "excuses.txt and excuses.html can be found.", nargs='?', default=None)
     return parser.parse_args()
 
 def main():
@@ -85,10 +87,7 @@ def main():
     cherrypy.config.update({'server.environment': 'production',
                             'server.socket_port': 8082,
                             'server.log_to_screen': False, })
-    setup(args.excuses_base)
-    cherrypy.engine.signal_handler.subscribe()
-    cherrypy.engine.start()
-    cherrypy.engine.block()
+    cherrypy.quickstart(ExcusesApp(args.excuses_base))
 
 if __name__ == '__main__':
     main()
