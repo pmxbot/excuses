@@ -40,9 +40,9 @@ class RandomExcuseGenerator(object):
 
     @classmethod
     def install_pmxbot_command(cls):
-        from pmxbot import botbase
+        from pmxbot import core
         generator = cls.create_local()
-        botbase.command("excuse", aliases=("e ",), doc="Provide a "
+        core.command("excuse", aliases=("e ",), doc="Provide a "
             "convenient excuse")(generator.pmxbot_excuse)
 
 class ExcusesApp(object):
