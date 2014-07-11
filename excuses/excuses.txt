@@ -528,3 +528,5 @@ Virtual machine has swine flu.
 VM issues are queued waiting for (sysadmin) processing time.
 The server is unable to complete any other queries until it responds to PANCAKE
 There seems to be an issue with the amd64 platform pptp server managing to reverse the byte order of the packet checksums.
+Spaces in filenames.
+Tabs for indentation.
