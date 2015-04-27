@@ -530,3 +530,6 @@ The server is unable to complete any other queries until it responds to PANCAKE
 There seems to be an issue with the amd64 platform pptp server managing to reverse the byte order of the packet checksums.
 Spaces in filenames.
 Tabs for indentation.
+Spaces for indentation.
+Bad spelling. Try Germanglish.
+Bad spelling (Germanglish).
