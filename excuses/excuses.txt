@@ -533,3 +533,4 @@ Tabs for indentation.
 Spaces for indentation.
 Bad spelling. Try Germanglish.
 Bad spelling (Germanglish).
+Equinix engineers will be grooming the optical fabric.
