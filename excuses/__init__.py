@@ -1,4 +1,3 @@
-import os
 import random
 import argparse
 
@@ -46,18 +45,11 @@ class RandomExcuseGenerator(object):
             "convenient excuse")(generator.pmxbot_excuse)
 
 class ExcusesApp(object):
-    def __init__(self, base):
-        self.base = base
-        if base:
-            excuses_filename = os.path.join(self.base, 'excuses.txt')
-            self.excuses = RandomExcuseGenerator(excuses_filename)
-        else:
-            self.excuses = RandomExcuseGenerator.create_local()
+    def __init__(self):
+        self.excuses = RandomExcuseGenerator.create_local()
 
     def index(self):
         stream = pkg_resources.resource_stream('excuses', 'excuses.html')
-        if self.base:
-            stream = open(os.path.join(self.base, 'excuses.html'))
         with stream:
             src = stream.read()
         return src % self.excuses.get()
@@ -74,20 +66,13 @@ class ExcusesApp(object):
         return self.excuses.find(word, index)
     new.exposed = True
 
-def get_args():
-    parser = argparse.ArgumentParser()
-    parser.add_argument('excuses_base', help="The directory where "
-        "excuses.txt and excuses.html can be found.", nargs='?', default=None)
-    return parser.parse_args()
-
 def main():
     global cherrypy
     import cherrypy
-    args = get_args()
     cherrypy.config.update({'server.environment': 'production',
                             'server.socket_port': 8082,
                             'server.log_to_screen': False, })
-    cherrypy.quickstart(ExcusesApp(args.excuses_base))
+    cherrypy.quickstart(ExcusesApp())
 
 if __name__ == '__main__':
     main()
