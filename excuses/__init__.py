@@ -67,7 +67,6 @@ class ExcusesApp(object):
     new.exposed = True
 
 def main():
-    global cherrypy
     import cherrypy
     cherrypy.config.update({'server.environment': 'production',
                             'server.socket_port': 8082,
