@@ -13,15 +13,15 @@ class RandomExcuseGenerator(object):
         return random.choice(self.excuses)
 
     def find(self, word, index=None):
-        candidates = []
-        for e in self.excuses:
-            if word in e.lower():
-                candidates.append(e)
-        imax = len(candidates) - 1
-        index = index or random.randint(0, imax)
-        if index > imax:
-            index = imax
-        return candidates[index]
+        candidates = [
+            e for e in self.excuses
+            if word in e.lower()
+        ]
+        if index is not None:
+            candidates = candidates[index:index+1]
+        if not candidates:
+            raise ValueError("No matches")
+        return random.choice(candidates)
 
     def pmxbot_excuse(self, client, event, channel, nick, rest):
         args = rest.split(' ')[:2]
