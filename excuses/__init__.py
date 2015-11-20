@@ -6,9 +6,8 @@ import pkg_resources
 
 class RandomExcuseGenerator(object):
     def __init__(self, filename):
-        file = io.open(filename, encoding='utf-8')
-        self.excuses = [line.strip() for line in file]
-        file.close()
+        with io.open(filename, encoding='utf-8') as file:
+            self.excuses = [line.strip() for line in file]
 
     def get(self):
         return random.choice(self.excuses)
