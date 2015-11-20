@@ -72,6 +72,7 @@ def main():
     config = {
         'server.environment': 'production',
         'server.socket_port': int(os.environ.get('PORT', 8082)),
+        'server.socket_host': '::0',
         'server.log_to_screen': False,
     }
     cherrypy.config.update(config)
