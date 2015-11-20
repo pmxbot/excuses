@@ -1,11 +1,12 @@
 import random
 import argparse
+import io
 
 import pkg_resources
 
 class RandomExcuseGenerator(object):
     def __init__(self, filename):
-        file = open(filename)
+        file = io.open(filename, encoding='utf-8')
         self.excuses = [line.strip() for line in file]
         file.close()
 
@@ -51,7 +52,7 @@ class ExcusesApp(object):
     def index(self):
         stream = pkg_resources.resource_stream('excuses', 'excuses.html')
         with stream:
-            src = stream.read()
+            src = stream.read().decode('utf-8')
         return src % self.excuses.get()
     index.exposed = True
 
