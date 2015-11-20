@@ -9,12 +9,12 @@ py26_reqs = ['argparse'] if sys.version_info < (2, 7) else []
 
 setup_params = dict(
 	name='excuses',
-	use_hg_version=True,
+	use_scm_version=True,
 	include_package_data=True,
 	packages=setuptools.find_packages(),
 	install_requires=py26_reqs,
 	setup_requires=[
-		'hgtools',
+		'setuptools_scm',
 	],
 	entry_points = dict(
 		console_scripts = [
