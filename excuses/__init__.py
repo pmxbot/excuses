@@ -1,6 +1,7 @@
+import os
+import io
 import random
 import argparse
-import io
 
 import pkg_resources
 
@@ -70,7 +71,7 @@ def main():
     import cherrypy
     config = {
         'server.environment': 'production',
-        'server.socket_port': 8082,
+        'server.socket_port': int(os.environ.get('PORT', 8082)),
         'server.log_to_screen': False,
     }
     cherrypy.config.update(config)
