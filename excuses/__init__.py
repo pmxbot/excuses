@@ -68,7 +68,10 @@ class ExcusesApp(object):
 
 def main():
     import cherrypy
-    cherrypy.config.update({'server.environment': 'production',
-                            'server.socket_port': 8082,
-                            'server.log_to_screen': False, })
+    config = {
+        'server.environment': 'production',
+        'server.socket_port': 8082,
+        'server.log_to_screen': False,
+    }
+    cherrypy.config.update(config)
     cherrypy.quickstart(ExcusesApp())
