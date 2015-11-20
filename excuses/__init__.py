@@ -73,6 +73,3 @@ def main():
                             'server.socket_port': 8082,
                             'server.log_to_screen': False, })
     cherrypy.quickstart(ExcusesApp())
-
-if __name__ == '__main__':
-    main()
