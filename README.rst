@@ -1,12 +1,12 @@
-.. image:: https://img.shields.io/pypi/v/skeleton.svg
-   :target: https://pypi.org/project/skeleton
+.. image:: https://img.shields.io/pypi/v/excuses.svg
+   :target: https://pypi.org/project/excuses
 
-.. image:: https://img.shields.io/pypi/pyversions/skeleton.svg
+.. image:: https://img.shields.io/pypi/pyversions/excuses.svg
 
-.. image:: https://img.shields.io/pypi/dm/skeleton.svg
+.. image:: https://img.shields.io/pypi/dm/excuses.svg
 
-.. image:: https://img.shields.io/travis/jaraco/skeleton/master.svg
-   :target: http://travis-ci.org/jaraco/skeleton
+.. image:: https://img.shields.io/travis/yougov/excuses/master.svg
+   :target: http://travis-ci.org/yougov/excuses
 
 BOFH Excuse Generator
 
