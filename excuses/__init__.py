@@ -24,7 +24,8 @@ class RandomExcuseGenerator(object):
             raise ValueError("No matches")
         return random.choice(candidates)
 
-    def pmxbot_excuse(self, client, event, channel, nick, rest):
+    def pmxbot_excuse(self, rest):
+        "Provide a convenient excuse"
         args = rest.split(' ')[:2]
         parser = argparse.ArgumentParser()
         parser.add_argument('word', nargs="?")
@@ -42,8 +43,7 @@ class RandomExcuseGenerator(object):
     def install_pmxbot_command(cls):
         from pmxbot import core
         generator = cls.create_local()
-        core.command("excuse", aliases=("e",), doc="Provide a "
-            "convenient excuse")(generator.pmxbot_excuse)
+        core.command("excuse", aliases="e")(generator.pmxbot_excuse)
 
 class ExcusesApp(object):
     def __init__(self):
