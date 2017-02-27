@@ -6,6 +6,14 @@ import argparse
 import pkg_resources
 
 class RandomExcuseGenerator(object):
+    """
+    >>> gen = RandomExcuseGenerator.create_local()
+    >>> res = gen.get()
+    >>> isinstance(res, str)
+    True
+    >>> 'internet' in gen.find('internet').lower()
+    True
+    """
     def __init__(self, filename):
         with io.open(filename, encoding='utf-8') as file:
             self.excuses = [line.strip() for line in file]
