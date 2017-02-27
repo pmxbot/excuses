@@ -8,11 +8,10 @@ import pkg_resources
 class RandomExcuseGenerator(object):
     """
     >>> gen = RandomExcuseGenerator.create_local()
-    >>> res = gen.get()
-    >>> isinstance(res, str)
-    True
-    >>> 'internet' in gen.find('internet').lower()
-    True
+    >>> gen.get()
+    '...'
+    >>> gen.find('internet').lower()
+    '...internet...'
     """
     def __init__(self, filename):
         with io.open(filename, encoding='utf-8') as file:
