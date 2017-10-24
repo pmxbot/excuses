@@ -1,3 +1,9 @@
+2.4
+===
+
+* Refresh project skeleton.
+* Add excuse.
+
 2.3
 ===
 
