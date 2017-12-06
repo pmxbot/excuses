@@ -542,3 +542,4 @@ Virtualenv overwrote system Python executable.
 Shears clogged; yak hair too thick.
 Insufficient haptic feedback from keyboard.
 Security training completed by task rabbit.
+Old VCR cassettes lying around.
