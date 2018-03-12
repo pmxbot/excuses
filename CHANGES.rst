@@ -1,3 +1,8 @@
+2.7
+===
+
+* Use literal TM character in excuses.
+
 2.6
 ===
 
