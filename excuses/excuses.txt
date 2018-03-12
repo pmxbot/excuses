@@ -89,7 +89,7 @@ Boss’ kid fucked up the machine
 Electromagnetic energy loss
 Budget cuts
 Mouse chewed through power cable
-Stale file handle (next time use Tupperware(tm)!)
+Stale file handle (next time use Tupperware™!)
 Feature not yet implemented
 Internet outage
 Pentium FDIV bug
