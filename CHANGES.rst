@@ -1,6 +1,7 @@
-2.7
+3.0
 ===
 
+* Drop support for Python 3.4 and earlier, including Python 2.
 * Use literal TM character in excuses.
 
 2.6

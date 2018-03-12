@@ -6,7 +6,7 @@ import argparse
 import pkg_resources
 
 
-class RandomExcuseGenerator(object):
+class RandomExcuseGenerator:
     """
     >>> gen = RandomExcuseGenerator.create_local()
     >>> gen.get()
@@ -54,7 +54,7 @@ class RandomExcuseGenerator(object):
         core.command("excuse", aliases="e")(generator.pmxbot_excuse)
 
 
-class ExcusesApp(object):
+class ExcusesApp:
     def __init__(self):
         self.excuses = RandomExcuseGenerator.create_local()
 
