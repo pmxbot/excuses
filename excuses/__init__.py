@@ -5,6 +5,7 @@ import argparse
 
 import pkg_resources
 
+
 class RandomExcuseGenerator(object):
     """
     >>> gen = RandomExcuseGenerator.create_local()
@@ -26,7 +27,7 @@ class RandomExcuseGenerator(object):
             if word in e.lower()
         ]
         if index is not None:
-            candidates = candidates[index:index+1]
+            candidates = candidates[index:index + 1]
         if not candidates:
             raise ValueError("No matches")
         return random.choice(candidates)
@@ -52,6 +53,7 @@ class RandomExcuseGenerator(object):
         generator = cls.create_local()
         core.command("excuse", aliases="e")(generator.pmxbot_excuse)
 
+
 class ExcusesApp(object):
     def __init__(self):
         self.excuses = RandomExcuseGenerator.create_local()
@@ -69,10 +71,11 @@ class ExcusesApp(object):
         if index:
             try:
                 index = int(index)
-            except:
+            except Exception:
                 index = None
         return self.excuses.find(word, index)
     new.exposed = True
+
 
 def main():
     import cherrypy
