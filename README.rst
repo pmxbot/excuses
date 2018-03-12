@@ -4,10 +4,13 @@
 .. image:: https://img.shields.io/pypi/pyversions/excuses.svg
 
 .. image:: https://img.shields.io/travis/yougov/excuses/master.svg
-   :target: http://travis-ci.org/yougov/excuses
+   :target: https://travis-ci.org/yougov/excuses
+
+.. .. image:: https://img.shields.io/appveyor/ci/jaraco/skeleton/master.svg
+..    :target: https://ci.appveyor.com/project/jaraco/skeleton/branch/master
 
 .. image:: https://readthedocs.org/projects/skeleton/badge/?version=latest
-   :target: http://skeleton.readthedocs.io/en/latest/?badge=latest
+   :target: https://skeleton.readthedocs.io/en/latest/?badge=latest
 
 BOFH Excuse Generator
 
