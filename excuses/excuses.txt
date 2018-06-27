@@ -546,3 +546,4 @@ Old VCR cassettes lying around.
 A disturbance in the Force.
 Nuclear launch detected.
 Mercury goes retrograde.
+Cryptojacking in the Slack client.
