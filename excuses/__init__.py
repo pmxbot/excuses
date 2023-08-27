@@ -15,6 +15,8 @@ def _resolve_iterable(input: Union[str, pathlib.Path, Traversable, Any]):
     return (line.strip() for line in cast(Iterable[str], input))
 
 
+# on Python 3.11 or later, replace explicit registration with
+# @_resolve_iterable.register
 @_resolve_iterable.register(Traversable)
 @_resolve_iterable.register(pathlib.Path)
 def _(input: Union[pathlib.Path, Traversable]):
