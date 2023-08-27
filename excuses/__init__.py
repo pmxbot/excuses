@@ -14,6 +14,7 @@ class RandomExcuseGenerator:
     >>> gen.find('internet').lower()
     '...internet...'
     """
+
     def __init__(self, filename):
         with io.open(filename, encoding='utf-8') as file:
             self.excuses = [line.strip() for line in file]
@@ -22,12 +23,9 @@ class RandomExcuseGenerator:
         return random.choice(self.excuses)
 
     def find(self, word, index=None):
-        candidates = [
-            e for e in self.excuses
-            if word in e.lower()
-        ]
+        candidates = [e for e in self.excuses if word in e.lower()]
         if index is not None:
-            candidates = candidates[index:index + 1]
+            candidates = candidates[index : index + 1]
         if not candidates:
             raise ValueError("No matches")
         return random.choice(candidates)
@@ -50,6 +48,7 @@ class RandomExcuseGenerator:
     @classmethod
     def install_pmxbot_command(cls):
         from pmxbot import core
+
         generator = cls.create_local()
         core.command("excuse", aliases="e")(generator.pmxbot_excuse)
 
@@ -63,6 +62,7 @@ class ExcusesApp:
         with stream:
             src = stream.read().decode('utf-8')
         return src % self.excuses.get()
+
     index.exposed = True
 
     def new(self, word=None, index=None):
@@ -74,11 +74,13 @@ class ExcusesApp:
             except Exception:
                 index = None
         return self.excuses.find(word, index)
+
     new.exposed = True
 
 
 def main():
     import cherrypy
+
     config = {
         'server.environment': 'production',
         'server.socket_port': int(os.environ.get('PORT', 8082)),
