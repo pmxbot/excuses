@@ -1,9 +1,29 @@
 import os
-import io
 import random
 import argparse
+import functools
+import pathlib
 
-import pkg_resources
+from typing import Union, Any, cast, Iterable
+
+from importlib_resources import files
+from importlib_resources.abc import Traversable
+
+
+@functools.singledispatch
+def _resolve_iterable(input: Union[str, pathlib.Path, Traversable, Any]):
+    return (line.strip() for line in cast(Iterable[str], input))
+
+
+@_resolve_iterable.register
+def _(input: Union[pathlib.Path, Traversable]):
+    with input.open(encoding='utf-8') as stream:
+        yield from _resolve_iterable(stream)
+
+
+@_resolve_iterable.register
+def _(input: str):
+    return _resolve_iterable(pathlib.Path(input))
 
 
 class RandomExcuseGenerator:
@@ -15,9 +35,8 @@ class RandomExcuseGenerator:
     '...internet...'
     """
 
-    def __init__(self, filename):
-        with io.open(filename, encoding='utf-8') as file:
-            self.excuses = [line.strip() for line in file]
+    def __init__(self, excuses):
+        self.excuses = list(_resolve_iterable(excuses))
 
     def get(self):
         return random.choice(self.excuses)
@@ -43,7 +62,7 @@ class RandomExcuseGenerator:
 
     @classmethod
     def create_local(cls):
-        return cls(pkg_resources.resource_filename('excuses', 'excuses.txt'))
+        return cls(files().joinpath('excuses.txt'))
 
     @classmethod
     def install_pmxbot_command(cls):
@@ -58,9 +77,7 @@ class ExcusesApp:
         self.excuses = RandomExcuseGenerator.create_local()
 
     def index(self):
-        stream = pkg_resources.resource_stream('excuses', 'excuses.html')
-        with stream:
-            src = stream.read().decode('utf-8')
+        src = files().joinpath('excuses.html').read_text(encoding='utf-8')
         return src % self.excuses.get()
 
     index.exposed = True  # type: ignore

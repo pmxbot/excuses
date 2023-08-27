@@ -1,0 +1,1 @@
+Switch from pkg_resources to importlib_resources. RandomExcuseGenerator now accepts a filename, Traversable, or iterable (such as file stream) for input.
