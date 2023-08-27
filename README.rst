@@ -1,14 +1,15 @@
 .. image:: https://img.shields.io/pypi/v/excuses.svg
-   :target: `PyPI link`_
+   :target: https://pypi.org/project/excuses
 
 .. image:: https://img.shields.io/pypi/pyversions/excuses.svg
-   :target: `PyPI link`_
 
-.. _PyPI link: https://pypi.org/project/excuses
+.. image:: https://github.com/pmxbot/excuses/workflows/tests/badge.svg
+   :target: https://github.com/pmxbot/excuses/actions?query=workflow%3A%22tests%22
+   :alt: tests
 
-.. image:: https://github.com/pmxbot/excuses/workflows/Automated%20Tests/badge.svg
-   :target: https://github.com/pmxbot/excuses/actions?query=workflow%3A%22Automated+Tests%22
-   :alt: Automated Tests
+.. image:: https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/charliermarsh/ruff/main/assets/badge/v2.json
+    :target: https://github.com/astral-sh/ruff
+    :alt: Ruff
 
 .. image:: https://img.shields.io/badge/code%20style-black-000000.svg
    :target: https://github.com/psf/black
@@ -16,6 +17,9 @@
 
 .. image:: https://readthedocs.org/projects/excuses/badge/?version=latest
    :target: https://excuses.readthedocs.io/en/latest/?badge=latest
+
+.. image:: https://img.shields.io/badge/skeleton-2023-informational
+   :target: https://blog.jaraco.com/skeleton
 
 BOFH Excuse Generator
 
