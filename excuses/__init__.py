@@ -63,7 +63,7 @@ class ExcusesApp:
             src = stream.read().decode('utf-8')
         return src % self.excuses.get()
 
-    index.exposed = True
+    index.exposed = True  # type: ignore
 
     def new(self, word=None, index=None):
         if not word:
@@ -75,7 +75,7 @@ class ExcusesApp:
                 index = None
         return self.excuses.find(word, index)
 
-    new.exposed = True
+    new.exposed = True  # type: ignore
 
 
 def main():
