@@ -1,3 +1,14 @@
+v3.3.0
+======
+
+Features
+--------
+
+- Refreshed and modernized the package.
+- Require Python 3.8 or later.
+- Switch from pkg_resources to importlib_resources. RandomExcuseGenerator now accepts a filename, Traversable, or iterable (such as file stream) for input.
+
+
 3.1
 ===
 
