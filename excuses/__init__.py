@@ -15,7 +15,8 @@ def _resolve_iterable(input: Union[str, pathlib.Path, Traversable, Any]):
     return (line.strip() for line in cast(Iterable[str], input))
 
 
-@_resolve_iterable.register
+@_resolve_iterable.register(Traversable)
+@_resolve_iterable.register(pathlib.Path)
 def _(input: Union[pathlib.Path, Traversable]):
     with input.open(encoding='utf-8') as stream:
         yield from _resolve_iterable(stream)
