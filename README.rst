@@ -3,7 +3,7 @@
 
 .. image:: https://img.shields.io/pypi/pyversions/excuses.svg
 
-.. image:: https://github.com/pmxbot/excuses/workflows/tests/badge.svg
+.. image:: https://github.com/pmxbot/excuses/actions/workflows/main.yml/badge.svg
    :target: https://github.com/pmxbot/excuses/actions?query=workflow%3A%22tests%22
    :alt: tests
 
