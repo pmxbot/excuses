@@ -83,7 +83,7 @@ class ExcusesApp:
         src = files().joinpath('excuses.html').read_text(encoding='utf-8')
         return src % self.excuses.get()
 
-    index.exposed = True  # type: ignore
+    index.exposed = True  # type: ignore[attr-defined]
 
     def new(self, word=None, index=None):
         if not word:
@@ -95,7 +95,7 @@ class ExcusesApp:
                 index = None
         return self.excuses.find(word, index)
 
-    new.exposed = True  # type: ignore
+    new.exposed = True  # type: ignore[attr-defined]
 
 
 def main():
