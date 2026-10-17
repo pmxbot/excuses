@@ -1,17 +1,17 @@
-import os
-import random
 import argparse
 import functools
+import os
 import pathlib
-
-from typing import Union, Any, cast, Iterable
+import random
+from collections.abc import Iterable
+from typing import Any, cast
 
 from importlib_resources import files
 from importlib_resources.abc import Traversable
 
 
 @functools.singledispatch
-def _resolve_iterable(input: Union[str, pathlib.Path, Traversable, Any]):
+def _resolve_iterable(input: str | pathlib.Path | Traversable | Any):
     return (line.strip() for line in cast(Iterable[str], input))
 
 
@@ -19,7 +19,7 @@ def _resolve_iterable(input: Union[str, pathlib.Path, Traversable, Any]):
 # @_resolve_iterable.register
 @_resolve_iterable.register(Traversable)
 @_resolve_iterable.register(pathlib.Path)
-def _(input: Union[pathlib.Path, Traversable]):
+def _(input: pathlib.Path | Traversable):
     with input.open(encoding='utf-8') as stream:
         yield from _resolve_iterable(stream)
 
@@ -91,7 +91,7 @@ class ExcusesApp:
         if index:
             try:
                 index = int(index)
-            except Exception:
+            except ValueError:
                 index = None
         return self.excuses.find(word, index)
 
@@ -103,7 +103,7 @@ def main():
 
     config = {
         'server.environment': 'production',
-        'server.socket_port': int(os.environ.get('PORT', 8082)),
+        'server.socket_port': int(os.environ.get('PORT', '8082')),
         'server.socket_host': '::0',
         'server.log_to_screen': False,
     }
